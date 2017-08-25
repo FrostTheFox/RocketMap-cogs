@@ -20,7 +20,7 @@ class checkproxy:
                     'https': p
                 }
         try:
-            r = requests.get('https://pgorelease.nianticlabs.com/plfe/version', proxies=pr, timeout=5)
+            r = requests.get('https://pgorelease.nianticlabs.com/plfe/version', proxies=pr, timeout=5, headers={'User-Agent': 'pokemongo/1 CFNetwork/811.5.4 Darwin/16.7.0'})
             if r.status_code == 200:
                 nstatus = ':white_check_mark: 200 OK, proxy is not banned.'
             if r.status_code == 403:
@@ -32,7 +32,7 @@ class checkproxy:
             logging.error('requestsexception: ' + str(e))
 
         try:
-            r = requests.get('https://sso.pokemon.com/sso/login?locale=en&service=https://www.pokemon.com/us/pokemon-trainer-club/caslogin', proxies=pr, timeout=5)
+            r = requests.get('https://sso.pokemon.com/sso/login?locale=en&service=https://www.pokemon.com/us/pokemon-trainer-club/caslogin', proxies=pr, timeout=5, headers={'User-Agent': 'pokemongo/1 CFNetwork/811.5.4 Darwin/16.7.0'})
             if r.status_code == 200:
                 pstatus = ':white_check_mark: 200 OK, proxy is not banned.'
             if r.status_code == 409:
