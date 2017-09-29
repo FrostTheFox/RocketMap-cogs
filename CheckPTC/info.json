@@ -1,7 +1,0 @@
-{
-    "AUTHOR" : "FrostTheFox",
-    "INSTALL_MSG" : "***Please ensure you have placed your PTC credentials in the config.json file.*** For more info, please read README.md in the CheckPTC folder of the repo.",
-    "NAME" : "CheckPTC",
-    "SHORT" : "Checks if we can login and get an access token for PoGo from PTC.",
-    "DESCRIPTION" : "Logs into Pokemon Trainer Club and requests a PoGo access token."
-}
