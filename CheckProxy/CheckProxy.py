@@ -20,7 +20,16 @@ class checkproxy:
                     'https': p
                 }
         try:
-            r = requests.get('https://pgorelease.nianticlabs.com/plfe/version', proxies=pr, timeout=5, headers={'User-Agent': 'pokemongo/1 CFNetwork/811.5.4 Darwin/16.7.0'})
+            r = requests.get('https://pgorelease.nianticlabs.com/plfe/version',
+                             proxies=pr,
+                             timeout=5,
+                             headers={'Host': 'pgorelease.nianticlabs.com',
+                                      'Connection': 'close',
+                                      'Accept': '*/*',
+                                      'User-Agent': 'pokemongo/0 CFNetwork/893.14.2 Darwin/17.3.0',
+                                      'Accept-Language': 'en-us',
+                                      'Accept-Encoding': 'br, gzip, deflate',
+                                      'X-Unity-Version': '2017.1.2f1'})
             if r.status_code == 200:
                 nstatus = ':white_check_mark: 200 OK, proxy is not banned.'
             if r.status_code == 403:
@@ -32,7 +41,16 @@ class checkproxy:
             logging.error('requestsexception: ' + str(e))
 
         try:
-            r = requests.get('https://sso.pokemon.com/sso/login?locale=en&service=https://www.pokemon.com/us/pokemon-trainer-club/caslogin', proxies=pr, timeout=5, headers={'User-Agent': 'pokemongo/1 CFNetwork/811.5.4 Darwin/16.7.0'})
+            r = requests.get('https://sso.pokemon.com/sso/login?service=https%3A%2F%2Fsso.pokemon.com%2Fsso%2Foauth2.0%2FcallbackAuthorize&locale=en_US',
+                             proxies=pr,
+                             timeout=5,
+                             headers={'Host': 'sso.pokemon.com',
+                                      'Connection': 'close',
+                                      'Accept': '*/*',
+                                      'User-Agent': 'pokemongo/0 CFNetwork/893.14.2 Darwin/17.3.0',
+                                      'Accept-Language': 'en-us',
+                                      'Accept-Encoding': 'br, gzip, deflate',
+                                      'X-Unity-Version': '2017.1.2f1'})
             if r.status_code == 200:
                 pstatus = ':white_check_mark: 200 OK, proxy is not banned.'
             if r.status_code == 409:
